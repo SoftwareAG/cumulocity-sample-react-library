@@ -1,11 +1,103 @@
-# Demo widget using React
 
-## A sample react library which fetches and displays the device details based on the device id.
-## It also updates the device name by taking an input from the user.
+#  React Demo Widget
 
-## Create React Library
+ The react demo widget is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in a widget. It also updates the device name by taking an input from the user.
+ This widget library can be used in react and angular applications.
 
-### Execute below commands to setup New React Library Project for widget developement. 
+#### Build Instructions
+1. **If you want to use the react widget library in a react app, follow the below steps:**
+### Create a react app
+
+#####   Steps to follow
+1.  Create a folder with the name of your choice. eg. react-app
+2. Navigate inside the folder and run the below command.
+```
+ npx create-react-app sample-app --template typescript
+ ```
+ 
+ 3.  In order to use Cumulocity Inventory Service, we need to install c8y/client in our react project.
+  ```
+npm i @c8y/client@1009.0.19
+```
+4. Install your react library package into your react app project.
+```
+npm i sample-react-library1
+``` 
+5. Replace the code in App.tsx file with the below block of code.
+```
+import { BasicAuth, Client } from  "@c8y/client";
+import { FetchDeviceDetails } from  "sample-react-library1/lib";
+
+ 
+function  App() {
+const  auth = new  BasicAuth({
+user:  'username',
+password:  'password',
+tenant:  'tenantId'
+});
+
+const  client = new  Client(auth, 'tenantUrl');
+client.setAuth(auth);
+const  fetchClient = client.core;
+
+return (
+<div>
+<div>This is a react app. Below is the react library widget</div>
+<div>..................................................................................</div>
+<FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}></FetchDeviceDetails>
+<div>.....................................................................................</div>
+</div>
+);
+}
+ 
+export  default  App;
+```
+ **NOTE:** The fetchClient and device id will be passed as an input from react app into the react library as below:
+  *<FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}>	</FetchDeviceDetails>
+  *
+6. Run the command
+```
+ npm run start 
+ ```
+
+2. **If you want to extend/modify this widget library and use it in your application, follow the below steps.**
+
+### Create a react library
+ 
+ **Requirements:**
+
+ - Git
+ -  NodeJS (release builds are currently built with  `v14.15.0`)
+ - NPM(Included with NodeJS)
+
+**Instructions**
+
+ 1. Clone the repository:
+
+``` git clone https://github.com/SoftwareAG/cumulocity-sample-react-library.git```
+
+2. Change directory:
+
+```cd  cumulocity-sample-react-library ```
+
+3. Install the dependencies:
+
+``` npm install ```
+
+4. Modify the code according to your use case.
+5. Run the command.
+```
+npm run build (tsc -p . && copy package.json ./lib && cd ./lib && npm pack)
+```
+A zip file will be created.
+what to do with the zip file?
+And use it in react app created in step 1.
+
+3. **If you want to create the custom react library from scratch, follow the below steps.**
+
+### Create Custom React Library
+
+#### Execute below commands to setup New React Library Project for widget developement. 
 
  1. Create a folder with any name of your choice.
  
@@ -15,21 +107,38 @@
 
     ```npm init -y```
 
- 3. As we have to use typescript in react component, we will install typescript as a dev dependency.
+ 3. As we have to use typescript, react and types in react component, we will install them as a dev dependencies.
 
      ``` npm i typescript -D```
+     ```npm i react @types/react -D```
+     
+   You will see the following entries in package.json file.    
+   
+"devDependencies": {
+              "@types/react": "^17.0.30",
+                react": "^17.0.2",
+              "typescript": "^4.4.4"
+              } 
+              
+  **NOTE:** *We install react, typescript and types as dev dependency because we do not want to fix a particular version of them for consumer of our package.*
 
  4. Install typescript compiler to initialise a new tsconfig file.
 
 	  ```npx tsc --init```
 	  
-5.  In tsconfig file, we will enable: declaration, declarationMap, sourceMap ,outDir: "lib".
+5.  In tsconfig file, we will enable: declaration, declarationMap, sourceMap ,outDir: "lib" and jsx: "react".
 
+ "compilerOptions": {
+					"jsx": "react",
+					"target": "ES2015",
+					}
+					
 	```  
 	declaration:To publish build version of our project
 	declarationMap:To navigate from d.ts file to ts file
 	sourceMap:To observe our ts file from js file.
 	outDir:To generate our output declaration,declarationMap,sourceMap file in lib folder.
+	jsx: point it to react to enable react support within typescript
 	```
 
  6. Since we are using typescript, we will add  "types" in package.json that will point to "lib" folder.
@@ -41,44 +150,33 @@
      "types": "lib",```
 ````
 
-7. Since we have to use react so we install react and types as dev dependency.
- ```npm i react @types/react -D```
  
-  "devDependencies": {
-              "@types/react": "^17.0.30",
-              react": "^17.0.2",
-              "typescript": "^4.4.4"
-              } 
-
-  **NOTE:** *We install react as dev dependency because we do not want to fix a particular version of react for consumer of our package.*
-
  8. Add the following as peer dependencies.
  ````
  ``` "peerDependencies": {
 "react": ">=17.0.2"
 } ```
 ````
-**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.*
+**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.* 
 
-  9. To enable react support within typescript, we need to enable jsx and point it to react in tsconfig.json.
- ```
- "compilerOptions": {
-					"jsx": "react"
-					}
-```
-
-10. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*). 
-
- 11. All our input typescript code will be located in **src** folder.
+10. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*).
+All our input typescript code will be located in **src** folder. 
 
  12. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
 ```
 npm i @c8y/client
 ```
+
+In order to use react query in our library, we need Query Client.
+```
+npm i react-query
+```
+
 You will see the following entry in package.json file.
 ```
 "dependencies": {
-"@c8y/client": "^1009.0.19"
+"@c8y/client": "^1009.0.19",
+"react-query": "^3.21.1"
 }
 ```
  13. Provide id and fetchClient object as an input to react library.
@@ -90,10 +188,7 @@ fetchClient:FetchClient;
 id: string;
 }
 ```
-11. In order to use react query in our library, we need Query Client.
-		```
-		npm i react-query
-		```
+ 
 	Add the following code in index.tsx file
 	```
 	import { QueryClient } from  "react-query";
@@ -144,11 +239,7 @@ name: string;
 }
 ```
 
-15. In tsconfig.ts file, add the following
-```
-"compilerOptions": {
-"target": "ES2015",
-}
+ 
 ```
 
 16. In App.tsx, add the following methods to get and update device details. 
