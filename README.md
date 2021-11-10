@@ -88,7 +88,7 @@ export  default  App;
 4. Modify the code according to your use case.
 5. Run the command.
 ```
-npm run build (tsc -p . && copy package.json ./lib && cd ./lib && npm pack)
+npm run build (tsc -p . && copy package.json lib && cd ./lib && npm pack)
 ```
 A zip file will be created.
 what to do with the zip file?
@@ -277,7 +277,7 @@ Once your library is ready, add the build command in scripts(in package.json fil
 {
 "main": "lib/index.js",
 "scripts": {
-"build": "tsc -p ."
+"build": "tsc -p . && copy package.json lib && cd ./lib && npm pack"
 }
 }
 ```
@@ -286,6 +286,6 @@ Run the command
  npm run build
  ```
  
- 18.  All the generated assets will be put into lib folder.
+ 18.  All the generated assets will be put into lib folder and a .tgz file will be created.
  19. Login to npm. Then run the command npm publish.
  20. We publish the package and use it from another application.
