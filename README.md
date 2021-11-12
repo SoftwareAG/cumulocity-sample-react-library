@@ -1,29 +1,20 @@
 
+
 #  React Demo Widget
 
  The react demo widget is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in a widget. It also updates the device name by taking an input from the user.
  This widget library can be used in react and angular applications.
 
 #### Build Instructions
-1. **If you want to use the react widget library in a react app, follow the instructions [here](https://github.com/SoftwareAG/cumulocity-sample-react-app)**
-### Create a react app
+1. **If you want to use the react widget library in a react app, follow the instructions to create a react app[here](https://github.com/SoftwareAG/cumulocity-sample-react-app)**
 
-#####   Steps to follow
-1.  Create a folder with the name of your choice. eg. react-app
-2. Navigate inside the folder and run the below command.
-```
- npx create-react-app sample-app --template typescript
- ```
+ After creating a react app, follow the below steps.
  
- 3.  In order to use Cumulocity Inventory Service, we need to install c8y/client in our react project.
-  ```
-npm i @c8y/client@1009.0.19
-```
-4. Install your react library package into your react app project.
+ Install your react library package into your react app project.
 ```
 npm i sample-react-library1
 ``` 
-5. Replace the code in App.tsx file with the below block of code.
+Replace the code in App.tsx file with the below block of code.
 ```
 import { BasicAuth, Client } from  "@c8y/client";
 import { FetchDeviceDetails } from  "sample-react-library1/lib";
@@ -52,15 +43,18 @@ return (
  
 export  default  App;
 ```
- **NOTE:** The fetchClient and device id will be passed as an input from react app into the react library as below:
-  *<FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}>	</FetchDeviceDetails>
-  *
+ 
   
-6. Run the command
+Run the command
 ```
  npm run start 
  ```
 
+```
+ **NOTE:** The fetchClient and device id will be passed as an input from react app into the react library as below:
+  *<React-Library-Name  fetchClient = {fetchClient}  id={'deviceId'}></React-Library-Name>*
+ ```
+ 
 2. **If you want to extend/modify this widget library and use it in your application, follow the below steps.**
 
 ### Create a react library
@@ -86,19 +80,41 @@ export  default  App;
 ``` npm install ```
 
 4. Modify the code according to your use case.
-5. Run the command.
+5. If you want to publish the react library widget on npm then follow the below instructions. Otherwise follow the step 6.
+ Add a build script in package.json.
 ```
-npm run build (tsc -p . && copy package.json lib && cd ./lib && npm pack)
+"scripts": {
+"build": "tsc -p ."
+}
 ```
-A zip file will be created.
-what to do with the zip file?
-And use it in react app created in step 1.
+
+Run the below command.
+``` npm run build```
+
+Run the below command and enter your npm account credentials.
+```npm run deploy```
+
+6. Add a build script in package.json.
+```
+"scripts": {
+"build": "tsc -p . && copy package.json lib && cd ./lib && npm pack"
+}
+```
+ Run the below command.
+```
+npm run build.
+```
+7. A .tgz file will be created in lib folder.
+### Install the react library in a react app
+8. Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
+9. Follow the below link to install the react library you just developed in your react app.
+[How to use the  developed react library in your application](How%20to%20use%20the%20%20developed%20react%20library%20in%20your%20application)  
 
 3. **If you want to create the custom react library from scratch, follow the below steps.**
 
 ### Create Custom React Library
 
-#### Execute below commands to setup New React Library Project for widget developement. 
+#### Execute below commands to setup New React Library Project for widget development. 
 
  1. Create a folder with any name of your choice.
  
@@ -287,5 +303,15 @@ Run the command
  ```
  
  18.  All the generated assets will be put into lib folder and a .tgz file will be created.
- 19. Login to npm. Then run the command npm publish.
- 20. We publish the package and use it from another application.
+ 19. Follow the below link to install the react library you just developed in your react app.
+[How to use the  developed react library in your application](How%20to%20use%20the%20%20developed%20react%20library%20in%20your%20application) 
+
+### [How to use the  developed react library in your application](How%20to%20use%20the%20%20developed%20react%20library%20in%20your%20application).
+
+Create a folder in your application and place the copied .tgz file from react library into this folder.
+
+Run the command 
+```
+npm i ./binary/react-library-file-name.
+Example:  npm i ./binary/sample-react-library1.1.0.6.tgz
+``` 
