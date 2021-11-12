@@ -5,7 +5,7 @@
  This widget library can be used in react and angular applications.
 
 #### Build Instructions
-1. **If you want to use the react widget library in a react app, follow the instructions (https://github.com/SoftwareAG/cumulocity-sample-react-app)[here]**
+1. **If you want to use the react widget library in a react app, follow the instructions [here](https://github.com/SoftwareAG/cumulocity-sample-react-app)**
 ### Create a react app
 
 #####   Steps to follow
