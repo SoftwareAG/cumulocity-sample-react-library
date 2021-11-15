@@ -1,12 +1,12 @@
 {
-  "name": "sample-react-library1",
+  "name": "sample-react-library-widget",
   "version": "1.0.6",
   "description": "",
   "main": "lib/index.js",
   "types": "lib",
   "scripts": {
-    "build": "tsc -p ."
-  },
+    "build": "tsc -p . && copy package.json lib && cd ./lib && npm pack"
+    },
   "repository": {
     "type": "git",
     "url": "https://labcase.softwareag.com/labcase/cumulocity-react.sample-react-library.git"
@@ -27,6 +27,5 @@
     "@c8y/client": "^1009.0.19",
     "react-query": "^3.21.1",
     "styled-components": "^5.3.0"
-
   }
 }
