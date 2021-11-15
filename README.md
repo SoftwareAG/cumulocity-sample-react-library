@@ -12,12 +12,12 @@
  
  Install your react library package into your react app project.
 ```
-npm i sample-react-library1
+npm i sample-react-library-widget
 ``` 
 Replace the code in App.tsx file with the below block of code.
 ```
 import { BasicAuth, Client } from  "@c8y/client";
-import { FetchDeviceDetails } from  "sample-react-library1/lib";
+import { FetchDeviceDetails } from  "sample-react-library-widget/lib";
 
  
 function  App() {
@@ -33,10 +33,7 @@ const  fetchClient = client.core;
 
 return (
 <div>
-<div>This is a react app. Below is the react library widget</div>
-<div>..................................................................................</div>
 <FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}></FetchDeviceDetails>
-<div>.....................................................................................</div>
 </div>
 );
 }
@@ -92,6 +89,7 @@ Run the below command.
 ``` npm run build```
 
 Run the below command and enter your npm account credentials.
+
 ```npm run deploy```
 
 6. Add a build script in package.json.
@@ -108,9 +106,10 @@ npm run build.
 ### Install the react library in a react app
 8. Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
 9. Follow the below link to install the react library you just developed in your react app.
+  
 [How to use the  developed react library in your application](How%20to%20use%20the%20%20developed%20react%20library%20in%20your%20application)  
 
-3. **If you want to create the custom react library from scratch, follow the below steps.**
+3.  **If you want to create the custom react library from scratch, follow the below steps.**
 
 ### Create Custom React Library
 
@@ -127,6 +126,7 @@ npm run build.
  3. As we have to use typescript, react and types in react component, we will install them as a dev dependencies.
 
      ``` npm i typescript -D```
+     
      ```npm i react @types/react -D```
      
    You will see the following entries in package.json file.    
@@ -143,7 +143,12 @@ npm run build.
 
 	  ```npx tsc --init```
 	  
-5.  In tsconfig file, we will enable: declaration, declarationMap, sourceMap ,outDir: "lib" and jsx: "react".
+5.  In tsconfig file, we will enable: 
+ declaration,
+ declarationMap, 
+ sourceMap,
+ outDir: "lib" and
+  jsx: "react".
 
  "compilerOptions": {
 					"jsx": "react",
@@ -168,7 +173,7 @@ npm run build.
 ````
 
  
- 8. Add the following as peer dependencies.
+ 8. Add the following as peer dependencies in package.json file.
  ````
  ``` "peerDependencies": {
 "react": ">=17.0.2"
@@ -198,22 +203,23 @@ You will see the following entry in package.json file.
 ```
  13. Provide id and fetchClient object as an input to react library.
 Add the below block of code in index.tsx file and do the necessary import.
-import { FetchClient } from  "@c8y/client";
 ```
+import { FetchClient } from  "@c8y/client";
+import { QueryClient } from  "react-query";
+
  type  Props = {
 fetchClient:FetchClient;
 id: string;
 }
+
+const  client = new  QueryClient();
 ```
- 
-	Add the following code in index.tsx file
-	```
-	import { QueryClient } from  "react-query";
-	const  client = new  QueryClient();
-    ```
+
 12. Create a functional Component 'src/App.tsx' . App.tsx will receive fetchClient and device id as input. Therefore create props for the same.
 
-```import { FetchClient } from  "@c8y/client";
+```
+import { FetchClient } from  "@c8y/client";
+
 import  React from  "react";
  type  Props = {
 fetchClient:FetchClient;
@@ -259,15 +265,14 @@ name: string;
  
 ```
 
-16. In App.tsx, add the following methods to get and update device details. 
+16. In App.tsx, add the following methods to get and update device details.
 
 ```
-const  inventory = new  InventoryService(fetchClient);
-```
-
 
 Get Device Details
-```const  getDeviceDetails = async (): Promise<DeviceItem> =>
+```
+const  inventory = new  InventoryService(fetchClient);
+const  getDeviceDetails = async (): Promise<DeviceItem> =>
 ((await  inventory.detail(id)).data) as  any;
 const {data, refetch} = useQuery<DeviceItem>('devices', getDeviceDetails);
 ```
@@ -282,8 +287,7 @@ inventory.update(partialUpdateObject).then((result) =>{
 if(result.res.status == 200) {
 refetch();
 }
-})
-}
+});
 ```
 17.  Add your development code.
 
