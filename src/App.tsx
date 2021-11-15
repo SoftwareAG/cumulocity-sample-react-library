@@ -1,6 +1,7 @@
 import { FetchClient, IManagedObject, InventoryService } from "@c8y/client";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { Wrapper } from "./App.styles";
 
 // fetchClient input is received as an input from index.tsx
 type Props = {
@@ -49,16 +50,32 @@ type Props = {
       })
     } 
   return (
+    <Wrapper>
+    <div>
+    <div className='heading'>Demo widget which fetches the device details</div>
       <div>
-      <div>This is a demo widget which fetches the device details</div>
-      <div>Device Id {data?.id}</div>
-      <div>Name {data?.name}</div>
-      <div> Last Updated {data?.lastUpdated}</div>
-      <div>Creation Time {data?.creationTime}</div>
-      <input onChange={handleChange} type="text" placeholder="Enter device name"></input>
-      <button  onClick={() => updateDeviceDetails(name)}>Update Device</button>
-       <div>Updated device name : {name}</div>
-      </div>
+      <span className="label">Device Id: </span>
+      <span>{data?.id}</span>
+    </div>
+    <div>
+      <span className="label">Name: </span>
+      <span>{data?.name}</span>
+    </div>
+    <div> 
+      <span className="label">Last Updated: </span>
+      <span>{data?.lastUpdated}</span>
+    </div>
+    <div>
+      <span className="label">Creation Time: </span>
+      <span>{data?.creationTime}</span>
+    </div>
+    <input className='inputBox' onChange={handleChange} type="text" placeholder="Enter device name"></input>
+    <button className="updateButton"  onClick={() => updateDeviceDetails(name)}>Update Device</button>
+     <div>
+      <span className='label'>Updated device name : </span>
+      <span>{name}</span></div>
+    </div>
+    </Wrapper>
 
   );
 }
