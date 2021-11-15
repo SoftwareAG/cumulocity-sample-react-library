@@ -317,5 +317,5 @@ Create a folder in your application and place the copied .tgz file from react li
 Run the command 
 ```
 npm i ./binary/react-library-file-name.
-Example:  npm i ./binary/sample-react-library1.1.0.6.tgz
+Example:  npm i ./binary/sample-react-library-widget.1.0.6.tgz
 ``` 
