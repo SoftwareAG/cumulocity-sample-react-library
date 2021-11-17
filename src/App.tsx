@@ -54,25 +54,25 @@ type Props = {
     <div>
     <div className='heading'>Demo widget which fetches the device details</div>
       <div>
-      <span className="label">Device Id: </span>
+      <span className="key">Device Id: </span>
       <span>{data?.id}</span>
     </div>
     <div>
-      <span className="label">Name: </span>
+      <span className="key">Name: </span>
       <span>{data?.name}</span>
     </div>
     <div> 
-      <span className="label">Last Updated: </span>
+      <span className="key">Last Updated: </span>
       <span>{data?.lastUpdated}</span>
     </div>
     <div>
-      <span className="label">Creation Time: </span>
+      <span className="key">Creation Time: </span>
       <span>{data?.creationTime}</span>
     </div>
     <input className='inputBox' onChange={handleChange} type="text" placeholder="Enter device name"></input>
     <button className="updateButton"  onClick={() => updateDeviceDetails(name)}>Update Device</button>
      <div>
-      <span className='label'>Updated device name : </span>
+      <span className='key'>Updated device name : </span>
       <span>{name}</span></div>
     </div>
     </Wrapper>

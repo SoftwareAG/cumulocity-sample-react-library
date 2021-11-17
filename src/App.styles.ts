@@ -8,17 +8,16 @@ export const Wrapper =  styled.div`
  }
 
 div {
-    padding: 15px;
+    padding: 10px;
 }
 
 
-.label {
+.key {
     font-weight: bold;
     font-size:17px;
 }
 
 .updateButton {
-    width: 8%;
     height: 33px;
     border-color: beige;
     border-radius: 10px;
@@ -27,7 +26,6 @@ div {
 }
 
 .inputBox {
-    width: 20%;
     margin: 0px 10px 0px 13px;
     height: 30px;
 }
