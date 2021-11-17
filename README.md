@@ -107,7 +107,7 @@ npm run build.
 8. Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
 9. Follow the below link to install the react library you just developed in your react app.
   
-[How to use the developed react library in your application](#%5BHow%20to%20use%20the%20develHow%20to%20use%20the%20developed%20react%20library%20in%20your%20application)  
+[How to use the developed react library in your application](#Installation)  
 
 3.  **If you want to create the custom react library from scratch, follow the below steps.**
 
@@ -310,7 +310,7 @@ Run the command
  19. Follow the below link to install the react library you just developed in your react app.
 [How to use the  developed react library in your application](How%20to%20use%20the%20%20developed%20react%20library%20in%20your%20application) 
 
-### How to use the developed react library in your application
+### Installation
 
 Create a folder in your application and place the copied .tgz file from react library into this folder.
 
