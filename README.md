@@ -296,7 +296,7 @@ refetch();
 
  18. In order to publish the package to npm, we need to setup package.json. In package.json, "main": will contain entry point which in our case will be "lib/index.js". 
 
-### Steps install the react widget library in a react app
+### Steps to install the react widget library in a react app
 
 - If you have published the react widget library on npm, then you can run the below command to install it in your react app.
 	```
