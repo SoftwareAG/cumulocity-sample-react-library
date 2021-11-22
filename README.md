@@ -201,7 +201,7 @@
 	}
 	```
 11. The basic setup to start developing react widget is ready. You can develop the widget according to your use case.
-12. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-when-you-once-your-library-is-ready).
+12. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-once-your-library-is-ready).
 
 #### How to use Cumulocity Inventory APIs in react widget  library
 
