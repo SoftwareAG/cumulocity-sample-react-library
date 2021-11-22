@@ -24,34 +24,34 @@
 	``` 
 3. We need to add a block of code in App.tsx file to authenticate the user on cumulocity platform so that our library can consume inventory apis.
 
-#### Add the below block of code
+	#### Add the below block of code
 
 
-	```
-	import { BasicAuth, Client } from  "@c8y/client";
-	import { FetchDeviceDetails } from  "sample-react-library-widget/lib";
+		```
+		import { BasicAuth, Client } from  "@c8y/client";
+		import { FetchDeviceDetails } from  "sample-react-library-widget/lib";
 
-	 
-	function  App() {
-	const  auth = new  BasicAuth({
-	user:  'username',
-	password:  'password',
-	tenant:  'tenantId'
-	});
 
-	const  client = new  Client(auth, 'tenantUrl');
-	client.setAuth(auth);
-	const  fetchClient = client.core;
+		function  App() {
+		const  auth = new  BasicAuth({
+		user:  'username',
+		password:  'password',
+		tenant:  'tenantId'
+		});
 
-	return (
-	<div>
-	<FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}></FetchDeviceDetails>
-	</div>
-	);
-	}
-	 
-	export  default  App;
-	```
+		const  client = new  Client(auth, 'tenantUrl');
+		client.setAuth(auth);
+		const  fetchClient = client.core;
+
+		return (
+		<div>
+		<FetchDeviceDetails  fetchClient = {fetchClient}  id={'deviceId'}></FetchDeviceDetails>
+		</div>
+		);
+		}
+
+		export  default  App;
+		```
  
 4. Run the below command to see the installed react widget library.
 	```
