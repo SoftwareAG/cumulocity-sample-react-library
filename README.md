@@ -84,7 +84,7 @@
 	``` npm install ```
 
 4. Modify the code according to your use case.
-5. You have 2 options when once your library is ready
+5. #### You have 2 options once your library is ready
 	- If you have an account on npm, You can publish the react library with the below steps.
 		- Add a build script in package.json file.
 			```
