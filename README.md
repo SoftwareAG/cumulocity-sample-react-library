@@ -24,7 +24,7 @@
 	``` 
 3. Add the below code
 
-   Replace the code in App.tsx file in your react app project with the below block of code.
+
 	```
 	import { BasicAuth, Client } from  "@c8y/client";
 	import { FetchDeviceDetails } from  "sample-react-library-widget/lib";
