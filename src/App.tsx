@@ -2,6 +2,7 @@ import { FetchClient, IManagedObject, InventoryService } from "@c8y/client";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { Wrapper } from "./App.styles";
+import Moment from 'moment';
 
 // fetchClient input is received as an input from index.tsx
 type Props = {
@@ -34,6 +35,10 @@ type Props = {
     const getDeviceDetails = async (): Promise<DeviceItem> => 
     ((await inventory.detail(id)).data) as any;
     const {data, refetch} = useQuery<DeviceItem>('devices', getDeviceDetails);
+    if(data !== undefined) {
+      data.creationTime = Moment(new Date(data.creationTime)).format('DD MMMM YYYY HH:mm');
+      data.lastUpdated = Moment(new Date(data.lastUpdated)).format('DD MMMM YYYY HH:mm');
+      }
 
     // update the name of the device
     const updateDeviceDetails = async (name: any) => {
