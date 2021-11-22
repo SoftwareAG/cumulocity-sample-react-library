@@ -12,7 +12,7 @@
 | ------------- |:-------------:| -----:|
 | 1     | If you want to directly use the react widget library in a react app | [Click here](#Instructions-to-directly-use-the-react-widget-library-in-a-react-app) |
 | 2     | If you want to extend/modify this widget library and use it in your application     |  [Click here](#Instructions-to-extend-or-modify-the-react-widget-library-and-use-it-in-your-react-app) |
-| 3 | If you want to create the custom react library from scratch     |    [Click here](#create) |
+| 3 | If you want to create the custom react library from scratch     |    [Click here](#Instructions-to-create-the-custom-react-widget-library-from-scratch) |
 
 
 ### Instructions to directly use the react widget library in a react app
