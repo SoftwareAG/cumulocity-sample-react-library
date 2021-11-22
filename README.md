@@ -141,7 +141,7 @@
 	              "typescript": "^4.4.4"
 	              } 
               
-  **NOTE:** *We install react, typescript and types as dev dependency because we do not want to fix a particular version of them for consumer of our package.*
+  	**NOTE:** *We install react, typescript and types as dev dependency because we do not want to fix a particular version of them for consumer of our package.*
 
  4. Install typescript compiler to initialise a new tsconfig file.
 
@@ -172,23 +172,23 @@
 	````
 
  
- 8. Add the following as peer dependencies in package.json file.
+ 7. Add the following as peer dependencies in package.json file.
 	 ````
 	 ``` "peerDependencies": {
 	"react": ">=17.0.2"
 	} ```
 	````
-**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.* 
+	**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.* 
 
-10. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*).
+8. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*).
 	All our input typescript code will be located in **src** folder. 
 
- 11. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
+9. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
 		```
 		npm i @c8y/client
 		```
 
-11. In order to use react query in our library, we need Query Client.
+10. In order to use react query in our library, we need Query Client.
 			```
 			npm i react-query
 			```
@@ -200,8 +200,8 @@
 	"react-query": "^3.21.1"
 	}
 	```
-12. The basic setup to start developing react widget is ready. You can develop the widget according to your use case.
-13. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-when-you-once-your-library-is-ready).
+11. The basic setup to start developing react widget is ready. You can develop the widget according to your use case.
+12. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-when-you-once-your-library-is-ready).
 
 #### How to use Cumulocity Inventory APIs in react widget  library
 
