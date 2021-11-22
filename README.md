@@ -23,6 +23,8 @@
 	npm i sample-react-library-widget
 	``` 
 3. We need to add a block of code to authenticate the user on cumulocity platform to use inventory apis on cumulocity platform
+
+
    Replace the code in App.tsx file in your react app project with the below block of code.
 	```
 	import { BasicAuth, Client } from  "@c8y/client";
