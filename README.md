@@ -111,7 +111,7 @@
 
 6.  Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
 7. Follow the steps to install the react library you just developed in your react app [here](#Steps-to-install-the-react-widget-library-in-a-react-app)
-8. After you have installed the react widget library in your react app, add [this](#Add-the-below-code) code and modify according to the requirement of the library you just developed.
+8. After you have installed the react widget library in your react app, add the code and modify according to the requirement of the library you just developed [here](#Add-the-below-code) .
 
 ### Instructions to create the custom react widget library from scratch
 
