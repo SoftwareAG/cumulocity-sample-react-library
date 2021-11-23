@@ -214,15 +214,15 @@ Below are the examples of how you can use cumulocity inventory apis in your reac
  1. Provide id and fetchClient object as an input to react library.
 Add the below block of code in index.tsx file and do the necessary import.
 	```
-			import { FetchClient } from  "@c8y/client";
-			import { QueryClient } from  "react-query";
+		import { FetchClient } from  "@c8y/client";
+		import { QueryClient } from  "react-query";
 
-			 type  Props = {
+			type  Props = {
 			fetchClient:FetchClient;
 			id: string;
 			}
 
-			const  client = new  QueryClient();
+		const  client = new  QueryClient();
 	```		
 
 2. Create a functional Component 'src/App.tsx' . App.tsx will receive fetchClient and device id as input. Therefore create props for the same.
