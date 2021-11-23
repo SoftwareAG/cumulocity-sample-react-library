@@ -1,6 +1,7 @@
 
 
 
+
 #  React Demo Widget
 
  The react demo widget is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in a widget. It also updates the device name by taking an input from the user.
@@ -84,7 +85,8 @@
 	``` npm install ```
 
 4. Modify the code according to your use case.
-5. #### You have 2 options once your library is ready
+5. In package.json, "main": will contain entry point of our library which in our case will be "lib/index.js".
+6. #### You have 2 options once your library is ready
 	- If you have an account on npm, You can publish the react library with the below steps.
 		- Add a build script in package.json file.
 			```
@@ -111,9 +113,9 @@
 			
 	**Note:** Till this point you have created a react widget library. You can now install it in your react app by following the below instructions.
 
-6.  Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
-7. Follow the steps to install the react library you just developed in your react app [here](#Steps-to-install-the-react-widget-library-in-a-react-app)
-8. After you have installed the react widget library in your react app, add the code and modify according to the requirement of the library you just developed [here](#Add-the-below-block-of-code) .
+7.  Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
+8. Follow the steps to install the react library you just developed in your react app [here](#Steps-to-install-the-react-widget-library-in-a-react-app)
+9. After you have installed the react widget library in your react app, add the code and modify according to the requirement of the library you just developed [here](#Add-the-below-block-of-code) .
 
 ### Instructions to create the custom react widget library from scratch
 
@@ -205,101 +207,94 @@
 
 #### How to use Cumulocity Inventory APIs in react widget  library
 
-Below are the examples of how you can use cumulocity inventory apis in your react widget library.
+In order to use cumulocity inventory apis, you need to pass fetchClient object to your react widget library.
 
-1. 
+Below are the examples of how you can use cumulocity inventory apis in your react widget library to fetch and update device details. 
 
- 13. Provide id and fetchClient object as an input to react library.
+ 1. Provide id and fetchClient object as an input to react library.
 Add the below block of code in index.tsx file and do the necessary import.
-		```
-		import { FetchClient } from  "@c8y/client";
-		import { QueryClient } from  "react-query";
+	```
+			import { FetchClient } from  "@c8y/client";
+			import { QueryClient } from  "react-query";
 
+			 type  Props = {
+			fetchClient:FetchClient;
+			id: string;
+			}
+
+			const  client = new  QueryClient();
+	```		
+
+2. Create a functional Component 'src/App.tsx' . App.tsx will receive fetchClient and device id as input. Therefore create props for the same.
+	```
+		import { FetchClient } from  "@c8y/client";
+		import  React from  "react";
+		
 		 type  Props = {
 		fetchClient:FetchClient;
 		id: string;
 		}
 
-		const  client = new  QueryClient();
+		const  App: React.FC<Props> = ({fetchClient, id}) => {
+		return(
+		<div>
+		<div>This is a demo widget which fetches the device details </div>
+		</div>
+		);
+		}
+		export  default  App; 
 		```
 
-15. Create a functional Component 'src/App.tsx' . App.tsx will receive fetchClient and device id as input. Therefore create props for the same.
-
-	```
-	import { FetchClient } from  "@c8y/client";
-
-	import  React from  "react";
-	 type  Props = {
-	fetchClient:FetchClient;
-	id: string;
-	}
-	
-
-	const  App: React.FC<Props> = ({fetchClient, id}) => {
-	return(
-	<div>
-	<div>This is a demo widget which fetches the device details </div>
-	</div>
-	);
-	}
-	export  default  App; 
-	```
-
-16. In index.tsx, Create a functional component and pass fetchClient and device id as an input.
+3. In index.tsx, Create a functional component and pass fetchClient and device id as an input.
 These inputs will inturn be passed as inputs to our App functional component.
  
- ```
- const  client = new  QueryClient();
- export  const  FetchDeviceDetails : React.FC<Props> = ({fetchClient, id}) =>{
-return (
-<QueryClientProvider  client={client}>
-<App  fetchClient={fetchClient}  id={id}  ></App>
-</QueryClientProvider>
-)
-}
-```
-**NOTE: ** Wrap the App component inside QueryClientProvider to enable it to use Query Client.
+	 ```
+	 const  client = new  QueryClient();
+	 export  const  FetchDeviceDetails : React.FC<Props> = ({fetchClient, id}) =>{
+	return (
+	<QueryClientProvider  client={client}>
+	<App  fetchClient={fetchClient}  id={id}  ></App>
+	</QueryClientProvider>
+	)
+	}
+	```
+	**NOTE: **  Wrap the App component inside QueryClientProvider to enable it to use Query Client.
 
-14. In App.tsx file, create an interface of Device Item to map the device details.
-```
-export  type  DeviceItem = {
-id:string;
-creationTime: string;
-lastUpdated:string;
-name: string;
-}
-```
+4. In App.tsx file, create an interface of Device Item to map the device details.
+	```
+	export  type  DeviceItem = {
+	id:string;
+	creationTime: string;
+	lastUpdated:string;
+	name: string;
+	}
+	```
 
- 
-```
+5. In App.tsx, add the following methods to get and update device details.
 
-16. In App.tsx, add the following methods to get and update device details.
+	Get Device Details
+	```
+	const  inventory = new  InventoryService(fetchClient);
+	const  getDeviceDetails = async (): Promise<DeviceItem> =>
+	((await  inventory.detail(id)).data) as  any;
+	const {data, refetch} = useQuery<DeviceItem>('devices', getDeviceDetails);
+	```
 
-```
+	Update Device name
+	```const  updateDeviceDetails = async (name: any) => {
+	const  partialUpdateObject: Partial<IManagedObject> = {
+	id:  id,
+	name:  name,
+	};
+	inventory.update(partialUpdateObject).then((result) =>{
+	if(result.res.status == 200) {
+	refetch();
+	}
+	});
+	```
 
-Get Device Details
-```
-const  inventory = new  InventoryService(fetchClient);
-const  getDeviceDetails = async (): Promise<DeviceItem> =>
-((await  inventory.detail(id)).data) as  any;
-const {data, refetch} = useQuery<DeviceItem>('devices', getDeviceDetails);
-```
 
-Update Device name
-```const  updateDeviceDetails = async (name: any) => {
-const  partialUpdateObject: Partial<IManagedObject> = {
-id:  id,
-name:  name,
-};
-inventory.update(partialUpdateObject).then((result) =>{
-if(result.res.status == 200) {
-refetch();
-}
-});
-```
-17.  Add your development code.
-
- 18. In order to publish the package to npm, we need to setup package.json. In package.json, "main": will contain entry point which in our case will be "lib/index.js". 
+ 18.  
 
 ### Steps to install the react widget library in a react app
 
