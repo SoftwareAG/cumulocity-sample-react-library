@@ -258,7 +258,7 @@ These inputs will inturn be passed as inputs to our App functional component.
 	)
 	}
 	```
-	**NOTE: **  Wrap the App component inside QueryClientProvider to enable it to use Query Client.
+	**NOTE:**  Wrap the App component inside QueryClientProvider to enable it to use Query Client.
 
 4. In App.tsx file, create an interface of Device Item to map the device details.
 	```
@@ -292,9 +292,6 @@ These inputs will inturn be passed as inputs to our App functional component.
 	}
 	});
 	```
-
-
- 18.  
 
 ### Steps to install the react widget library in a react app
 
