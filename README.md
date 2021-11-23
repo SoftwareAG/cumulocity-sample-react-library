@@ -111,7 +111,7 @@
 			```
 		 - Run the below command and a .tgz file will be created in 'lib' folder.
 			```
-			npm run build.
+			npm run build
 			```
 			All the generated assets will be put into lib folder and a .tgz file will be created.
 			
