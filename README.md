@@ -29,7 +29,7 @@
 	#### Add the below block of code
 
 
-		```
+		
 		import { BasicAuth, Client } from  "@c8y/client";
 		import { FetchDeviceDetails } from  "sample-react-library-widget/lib";
 
@@ -53,7 +53,7 @@
 		}
 
 		export  default  App;
-		```
+		
  
 4. Run the below command to see the installed react widget library.
 	```
