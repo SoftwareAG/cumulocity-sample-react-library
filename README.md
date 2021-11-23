@@ -11,9 +11,10 @@
 
 | Serial No.       | Scenario         | Instruction Link  |
 | ------------- |:-------------:| -----:|
-| 1     | If you want to directly use the react widget library in a react app | [Click here](#Instructions-to-directly-use-the-react-widget-library-in-a-react-app) |
-| 2     | If you want to extend/modify this widget library and use it in your application     |  [Click here](#Instructions-to-extend-or-modify-the-react-widget-library-and-use-it-in-your-react-app) |
-| 3 | If you want to create the custom react library from scratch     |    [Click here](#Instructions-to-create-the-custom-react-widget-library-from-scratch) |
+|1|If you want to directly use the react widget library in cumulocity| [Click here](https://github.com/SoftwareAG/cumulocity-react-runtime-widget.git)
+| 2     | If you want to directly use the react widget library in a react app | [Click here](#Instructions-to-directly-use-the-react-widget-library-in-a-react-app) |
+| 3     | If you want to extend/modify this widget library and use it in your application     |  [Click here](#Instructions-to-extend-or-modify-the-react-widget-library-and-use-it-in-your-react-app) |
+| 4 | If you want to create the custom react library from scratch     |    [Click here](#Instructions-to-create-the-custom-react-widget-library-from-scratch) |
 
 
 ### Instructions to directly use the react widget library in a react app
@@ -309,3 +310,7 @@ These inputs will inturn be passed as inputs to our App functional component.
 		Example:  npm i ./binary/sample-react-library-widget.1.0.6.tgz
 		``` 
 
+---
+This library is provided as-is and without warranty or support. They do not constitute part of the Software AG product suite. Users are free to use, fork and modify them, subject to the license agreement. While Software AG welcomes contributions, we cannot guarantee to include every contribution in the master project.
+
+---
