@@ -193,7 +193,7 @@
 10. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
 
 
-		npm i @c8y/client
+		npm i @c8y/client@1009.0.19
 
 11. In order to use react query in our library, we need Query Client.
 			```
