@@ -95,9 +95,13 @@
 			}
 			```
 		-	Run the below command to create a build.
-			``` npm run build```
+			``` 
+			npm run build
+			```
 		- Run the below command and enter your npm account credentials.
-			```npm publish```
+			```
+			npm publish
+			```
 	- If you do not want to publish your library on npm , you can create .tgz file with below steps.
 		- Add a build script in package.json file.
 			```
