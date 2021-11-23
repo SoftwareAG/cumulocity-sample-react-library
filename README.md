@@ -167,19 +167,19 @@
 
  6. Since we are using typescript, we will add  "types" in package.json that will point to "lib" folder.
 	````
-	```  "name": "react-library",
+	 "name": "react-library",
 	     "version": "1.0.0",
 	     "description": "A react library which fetches the device details of a particular device id. It also updates the device name by taking an input from the user.",
 		 "main": "index.js",
-	     "types": "lib",```
+	     "types": "lib",
 	````
 
  
  7. Add the following as peer dependencies in package.json file.
 	 ````
-	 ``` "peerDependencies": {
+	"peerDependencies": {
 	"react": ">=17.0.2"
-	} ```
+	}
 	````
 	**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.* 
 
@@ -187,6 +187,8 @@
 	All our input typescript code will be located in **src** folder. 
 
 9. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
+
+
 		```
 		npm i @c8y/client
 		```
