@@ -86,8 +86,7 @@
 	``` npm install ```
 
 4. Modify the code according to your use case.
-5. In package.json, "main": will contain entry point of our library which in our case will be "lib/index.js".
-6. #### You have 2 options once your library is ready
+5. #### You have 2 options once your library is ready
 	- If you have an account on npm, You can publish the react library with the below steps.
 		- Add a build script in package.json file.
 			```
@@ -114,9 +113,9 @@
 			
 	**Note:** Till this point you have created a react widget library. You can now install it in your react app by following the below instructions.
 
-7.  Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
-8. Follow the steps to install the react library you just developed in your react app [here](#Steps-to-install-the-react-widget-library-in-a-react-app)
-9. After you have installed the react widget library in your react app, add the code and modify according to the requirement of the library you just developed [here](#Add-the-below-block-of-code) .
+6.  Follow the steps to create a react app from [here](https://github.com/SoftwareAG/cumulocity-sample-react-app). 
+7. Follow the steps to install the react library you just developed in your react app [here](#Steps-to-install-the-react-widget-library-in-a-react-app)
+8. After you have installed the react widget library in your react app, add the code and modify according to the requirement of the library you just developed [here](#Add-the-below-block-of-code) .
 
 ### Instructions to create the custom react widget library from scratch
 
@@ -185,13 +184,14 @@
 
 8. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*).
 	All our input typescript code will be located in **src** folder. 
+9. In package.json, "main": will contain entry point of our library which in our case will be "lib/index.js". 
 
-9. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
+10. In order to use Cumulocity Inventory Service, we need to install c8y/client in our library project.
 
 
 		npm i @c8y/client
 
-10. In order to use react query in our library, we need Query Client.
+11. In order to use react query in our library, we need Query Client.
 			```
 			npm i react-query
 			```
@@ -203,8 +203,8 @@
 	"react-query": "^3.21.1"
 	}
 	```
-11. The basic setup to start developing react widget is ready. You can develop the widget according to your use case.
-12. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-once-your-library-is-ready).
+12. The basic setup to start developing react widget is ready. You can develop the widget according to your use case.
+13. After developing the react widget, build the react library and install it in your react app [here](#You-have-2-options-once-your-library-is-ready).
 
 #### How to use Cumulocity Inventory APIs in react widget  library
 
