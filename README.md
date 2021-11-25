@@ -2,9 +2,9 @@
 
 
 
-#  React Demo Widget
+#  React Library Project
 
- The react demo widget is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in a widget. It also updates the device name by taking an input from the user.
+ The react library project is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in UI. It also updates the device name by taking an input from the user.
  This widget library can be used in react and angular applications.
 
 ## Build Instructions 
