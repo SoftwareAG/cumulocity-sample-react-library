@@ -2,6 +2,7 @@
 
 
 
+
 #  React Library Project
 
  The react library project is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in UI. It also updates the device name by taking an input from the user.
@@ -20,10 +21,11 @@
 ### Instructions to directly use the react widget library in a react app
 
 1. Follow the instructions to create a react app [here](https://github.com/SoftwareAG/cumulocity-sample-react-app)
-2. After creating a react app, you need to install the react library package into your project. Run the below command to do the same.
+2. After creating a react app, if you have npm account, you need to install the react library package into your project. Run the below command to do the same.
 	```
 	npm i sample-react-library-widget
 	``` 
+3. If you do not have npm account, then copy the binary file from the src
 3. We need to add a block of code in App.tsx file to authenticate the user on cumulocity platform so that our library can consume inventory apis.
 
 	#### Add the below block of code
@@ -142,7 +144,7 @@
 	   You will see the following entries in package.json file.    
 	   
 	"devDependencies": {
-	              "@types/react": "^17.0.30",
+	              "@types/react": "^17.0.19",
 	                react": "^17.0.2",
 	              "typescript": "^4.4.4"
 	              } 
@@ -178,12 +180,26 @@
 	````
 
  
- 7. Add the following as peer dependencies in package.json file.
-	 ````
-	"peerDependencies": {
-	"react": ">=17.0.2"
-	}
-	````
+ 7. Add the following as peer and dev dependencies in package.json file.
+
+			"peerDependencies": {
+		"react": ">=17.0.2",
+		"@c8y/client": "^1009.0.19",
+		"moment": "^2.29.1",
+		"react-query": "^3.21.1",
+		"styled-components": "^5.3.0"
+		},
+
+		"devDependencies": {
+		"@types/react": "^17.0.19",
+		"react": "^17.0.2",
+		"typescript": "^4.4.4",
+		"@types/styled-components": "^5.1.10",
+		"react-query": "^3.21.1",
+		"@c8y/client": "^1009.0.19",
+		"moment": "^2.29.1",
+		"styled-components": "^5.3.0"
+		},
 	**NOTE:** *We add a peer dependency so that when we install a package, npm know that it has to install some version of react which is >= 17.. or so.* 
 
 8. Create **src/index.tsx** file as entry point for our library.(*tsx allows us to use jsx*).
