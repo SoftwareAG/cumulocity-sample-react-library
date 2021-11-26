@@ -3,7 +3,7 @@
 
 
 
-#  React Library Project
+#  React Library Project[<img width="35" src="https://user-images.githubusercontent.com/67993842/97668428-f360cc80-1aa7-11eb-8801-da578bda4334.png"/>](https://github.com/SoftwareAG/cumulocity-sample-react-library/releases/download/1.0.0/sample-react-library-1.0.0.tgz)
 
  The react library project is a sample library created using ReactJS. It  fetches the Inventory data  by taking the device id as an input and displays the same in UI. It also updates the device name by taking an input from the user.
  This widget library can be used in react and angular applications.
