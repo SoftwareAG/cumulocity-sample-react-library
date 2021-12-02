@@ -25,8 +25,13 @@
 	```
 	npm i sample-react-library-widget
 	``` 
-3. If you do not have npm account, then copy the binary file from the src
-3. We need to add a block of code in App.tsx file to authenticate the user on cumulocity platform so that our library can consume inventory apis.
+3. If you do not have npm account, then download the binary file from the download icon above and place it under any folder(example: binary) in your react app. Install this 	    binary file in your project.
+	``` 
+	npm i ./path/binary-file-name
+	Example: npm i ./binary/sample-react-library-1.0.0.tgz
+	```
+	
+4. We need to add a block of code in App.tsx file to authenticate the user on cumulocity platform so that our library can consume inventory apis.
 
 	#### Add the below block of code
 
@@ -57,7 +62,7 @@
 		export  default  App;
 		
  
-4. Run the below command to see the installed react widget library.
+5. Run the below command to see the installed react widget library.
 	```
 	 npm run start 
 	 ```
